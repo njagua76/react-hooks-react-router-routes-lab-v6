@@ -1,5 +1,5 @@
 .navbar > a{
-    display: inline-block;
+    display: inline-flex; 
     box-sizing: border-box;
     width: 70px;
     padding: 5px;
