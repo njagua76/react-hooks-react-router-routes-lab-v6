@@ -1,12 +1,13 @@
-span {
-    margin: 2px 2px;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
-
-article {
-    border: solid 1px;
-    border-radius: 5px;
-    margin: 5px;
-    max-width: 350px;
-    box-sizing: border-box;
-    padding: 5px;
+h1, h2, h3 {
+  color: #333;
+}
+.movie-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
 }

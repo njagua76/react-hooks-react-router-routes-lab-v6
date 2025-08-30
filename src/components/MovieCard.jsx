@@ -1,11 +1,15 @@
-// src/components/MovieCard.jsx
 import { Link } from "react-router-dom";
+import "./MovieCard.css";
 
 function MovieCard({ movie }) {
   return (
-    <div>
-      <h2>{movie.title}</h2>
-      <Link to={`/movie/${movie.id}`}>View Details</Link>
+    <div className="movie-card">
+      <h3>{movie.title}</h3>
+      <p><strong>Runtime:</strong> {movie.time} mins</p>
+      <p><strong>Genres:</strong> {movie.genres.join(", ")}</p>
+      <Link to={`/movie/${movie.id}`} className="view-btn">
+        View Details
+      </Link>
     </div>
   );
 }

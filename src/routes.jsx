@@ -1,34 +1,26 @@
-// src/routes.jsx
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import Movie from "./pages/Movie";
 import Actors from "./pages/Actors";
 import Directors from "./pages/Directors";
 import ErrorPage from "./pages/ErrorPage";
+import App from "./App";
 
-const routes = createBrowserRouter([
+const routes = [
   {
     path: "/",
-    element: <Home />,
-    errorElement: <ErrorPage />,
+    element: <App />,
+    errorElement: <ErrorPage />, // ✅ Error page text matches tests
+    children: [
+      { index: true, element: <Home /> },
+      { path: "actors", element: <Actors /> },
+      { path: "directors", element: <Directors /> },
+      { path: "movie/:id", element: <Movie /> }, // ✅ singular (tests expect this)
+    ],
   },
-  {
-    path: "/movie/:id",
-    element: <Movie />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/actors",
-    element: <Actors />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/directors",
-    element: <Directors />,
-    errorElement: <ErrorPage />,
-  },
-]);
+];
 
-export default routes;
+const router = createBrowserRouter(routes);
 
-
+export default routes; // ✅ used in tests
+export { router };
